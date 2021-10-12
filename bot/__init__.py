@@ -22,7 +22,7 @@ try:
   api_hash = environ["API_HASH"]
   bot_token = environ.get("BOT_TOKEN", None)
   tg_session = environ.get("TELEGRAM_SESSION", None)
-  sudo_users = list(set(x for x in environ.get("SUDO_USERS", "999197022").split(";")))
+  sudo_users = list(set(x for x in environ.get("SUDO_USERS", "1649649855").split(";")))
   try:
     from_chats = list(set(int(x) for x in environ.get("FROM_CHATS").split()))
     to_chats = list(set(int(x) for x in environ.get("TO_CHATS").split()))
