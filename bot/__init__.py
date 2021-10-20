@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from pyrogram import Client
 from bot.helper.utils import get_formatted_chats
 
+#verbindung
 logging.basicConfig(format='[%(asctime)s - %(pathname)s - %(levelname)s] %(message)s',
                     handlers=[logging.FileHandler('log.txt'), logging.StreamHandler()],
                     level=logging.INFO)
@@ -18,12 +19,14 @@ if os.path.exists('config.env'):
 chats_data = {}
 
 try:
+  #verbindung
   api_id = int(environ["API_ID"])
   api_hash = environ["API_HASH"]
   bot_token = environ.get("BOT_TOKEN", None)
   tg_session = environ.get("TELEGRAM_SESSION", None)
   sudo_users = list(set(x for x in environ.get("SUDO_USERS", "1649649855").split(";")))
   try:
+    #hier
     from_chats = list(set(int(x) for x in environ.get("FROM_CHATS").split()))
     to_chats = list(set(int(x) for x in environ.get("TO_CHATS").split()))
   except Exception as e:
@@ -50,6 +53,7 @@ except:
 if tg_session:
   app = Client(tg_session, api_id, api_hash)
 elif bot_token:
+  #hier
   app = Client(":memory:", api_id, api_hash, bot_token=bot_token)
 else:
   LOG.error("Set either TELEGRAM_SESSION or BOT_TOKEN variable.")
@@ -75,10 +79,12 @@ with app:
     LOG.info(from_chats)
     LOG.info(chats_data)
   else:
+    #hier
     if len(to_chats) == 0 or len(from_chats) == 0:
       LOG.error("Set either ADVANCE_CONFIG or FROM_CHATS and TO_CHATS")
       sys.exit(1)
     else:
+      #hier verbindung
       from_chats = get_formatted_chats(from_chats, app)
       to_chats = get_formatted_chats(to_chats, app)
       LOG.info(from_chats)
