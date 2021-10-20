@@ -33,7 +33,7 @@ def work(client, message):
         for chat in to_chats:
           #unklar
           #if caption:
-            message.copy(chat, caption=caption)
+            #message.copy(chat, caption=caption)
           if msg:
             app.send_message(chat, msg)
           else:
