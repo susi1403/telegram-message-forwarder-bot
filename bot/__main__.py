@@ -28,17 +28,20 @@ def work(client, message):
       except Exception as e:
         LOG.error(e)
     else:
+      #hier
       try:
         for chat in to_chats:
-          if caption:
+          #unklar
+          #if caption:
             message.copy(chat, caption=caption)
-          elif msg:
+          if msg:
             app.send_message(chat, msg)
           else:
             message.copy(chat)
       except Exception as e:
         LOG.error(e)
 
+#/forward command
 @app.on_message(filters.user(sudo_users) & filters.command(["fwd", "forward"]), group=1)
 def forward(app, message):
     if len(message.command) > 1:
