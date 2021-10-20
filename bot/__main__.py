@@ -32,12 +32,13 @@ def work(client, message):
       try:
         for chat in to_chats:
           #unklar
-          if caption:
-            message.copy(chat, caption=caption)
-          elif msg:
-            app.send_message(chat, msg)
+          #if caption:
+            #message.copy(chat, caption=caption)
+          #elif msg:
+            #app.send_message(chat, msg)
           #else:
             #message.copy(chat)
+            print("Hallo")
       except Exception as e:
         LOG.error(e)
 
