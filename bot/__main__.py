@@ -30,14 +30,15 @@ def work(client, message):
     else:
       #hier
       try:
+        print(len(to_chats))
         for chat in to_chats:
           #unklar
           if caption:
             message.copy(chat, caption=caption)
           elif msg:
             app.send_message(chat, msg)
-          #else:
-            #message.copy(chat)
+          else:
+            message.copy(chat)
       except Exception as e:
         LOG.error(e)
 
