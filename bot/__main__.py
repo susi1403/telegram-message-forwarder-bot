@@ -34,10 +34,10 @@ def work(client, message):
           #unklar
           if caption:
             message.copy(chat, caption=caption)
-          #elif msg:
-            #app.send_message(chat, msg)
-          else:
-            message.copy(chat)
+          elif msg:
+            app.send_message(chat, msg)
+          #else:
+            #message.copy(chat)
       except Exception as e:
         LOG.error(e)
 
