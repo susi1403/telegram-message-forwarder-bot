@@ -39,7 +39,6 @@ def work(client, message):
       except Exception as e:
         LOG.error(e)
 
-#/forward command
 @app.on_message(filters.user(sudo_users) & filters.command(["fwd", "forward"]), group=1)
 def forward(app, message):
     if len(message.command) > 1:
