@@ -10,13 +10,9 @@ from bot.helper.utils import get_formatted_chat
 def work(client, message):
     caption = None
     msg = None
-    i = 0
-    #hier
     try:
       for chat in to_chats:
         #unklar
-        print(i)
-        i = i+1
         if caption:
           message.copy(chat, caption=caption)
         elif msg:
